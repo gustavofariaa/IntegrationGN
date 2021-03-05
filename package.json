@@ -1,0 +1,35 @@
+{
+  "name": "store-integration",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "babel-plugin-styled-components": "^1.12.0",
+    "bootstrap": "^5.0.0-beta2",
+    "formik": "^2.2.6",
+    "gn-api-sdk-node": "^1.0.0",
+    "http-status-codes": "^2.1.4",
+    "moment": "^2.29.1",
+    "next": "10.0.7",
+    "next-compose-plugins": "^2.2.1",
+    "next-images": "^1.7.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-icons": "^4.2.0",
+    "sass": "^1.32.8",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
+}
