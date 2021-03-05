@@ -1,8 +1,11 @@
 import StatusCodes from 'http-status-codes';
 
 import gerencianet from '../../../config/gerencianet.config';
+import { cors } from '../../../lib/initMiddleware';
 
 export default async (req, res) => {
+  await cors(req, res);
+
   const { query, body } = req;
 
   try {
