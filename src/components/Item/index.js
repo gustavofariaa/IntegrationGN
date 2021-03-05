@@ -38,7 +38,7 @@ export default function Item({ product, width = 256 }) {
       <div className="card-body">
         <p className="card-title">{product.name}</p>
         <h4 className="card-text text-primary m-0">{formatBRL(product.value)}</h4>
-        <p className="card-text text-secondary">{`12x de ${formatBRL(product.value / 12)} sem juros`}</p>
+        <p className="card-text text-secondary">{`3x de ${formatBRL(product.value / 3)} sem juros`}</p>
       </div>
     </Styles.Item>
   );

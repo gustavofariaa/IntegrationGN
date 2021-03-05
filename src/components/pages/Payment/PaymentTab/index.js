@@ -1,30 +1,34 @@
+/* eslint-disable camelcase */
 import BankingBillet from './BankingBillet';
 import CreditCard from './CreditCard';
 
 export default function PaymentTab({ payment }) {
   if (payment?.status === 'waiting') {
-    // eslint-disable-next-line camelcase
     const { banking_billet } = payment?.payment;
     return (
       <div className="text-center m-5">
         <h4 className="text-primary m-0 mb-4">Aguardando pagamento</h4>
-        <a
-          href={banking_billet?.link}
-          target="__blank"
-          className="mx-2 btn btn-outline-secondary"
-          aria-hidden="true"
-        >
-          Visualizar boleto
-        </a>
-        <a
-          href={banking_billet?.pdf?.charge}
-          target="__blank"
-          download={`banking_billet_${payment?.charge_id}`}
-          className="mx-2 btn btn-secondary"
-          aria-hidden="true"
-        >
-          Baixar boleto
-        </a>
+        {banking_billet && (
+          <>
+            <a
+              href={banking_billet?.link}
+              target="__blank"
+              className="mx-2 btn btn-outline-secondary"
+              aria-hidden="true"
+            >
+              Visualizar boleto
+            </a>
+            <a
+              href={banking_billet?.pdf?.charge}
+              target="__blank"
+              download={`banking_billet_${payment?.charge_id}`}
+              className="mx-2 btn btn-secondary"
+              aria-hidden="true"
+            >
+              Baixar boleto
+            </a>
+          </>
+        )}
       </div>
     );
   }

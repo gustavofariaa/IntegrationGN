@@ -12,6 +12,8 @@ import api from '../../../utils/api';
 export default function Payment({ payment }) {
   const router = useRouter();
 
+  console.log(payment);
+
   const { showAlert } = useAlertContext();
 
   if (typeof payment === 'undefined') {
@@ -25,6 +27,21 @@ export default function Payment({ payment }) {
   }
 
   const goToHome = () => router.push('/');
+
+  if (payment?.status === 'paid') {
+    const { message } = payment?.history?.find?.((value) => value?.message?.includes?.(' efetuado em '));
+    return (
+      <Styles.Container className="text-secondary">
+        <div className="wrapper text-center">
+          <h1>Pagamento efetuado!</h1>
+          <h2>{message ?? ''}</h2>
+          <button type="button" className="mt-4 btn btn-primary text-light" onClick={goToHome}>
+            <h5 className="m-0 p-2">Clique para continuar comprando</h5>
+          </button>
+        </div>
+      </Styles.Container>
+    );
+  }
 
   if (payment?.status === 'canceled') {
     return (

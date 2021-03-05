@@ -92,7 +92,7 @@ export default function Product({ product }) {
           <div className="product-price">
             <h3 className="m-0"><b>{formatBRL(product?.value)}</b></h3>
             <p className="m-0 text-secondary">
-              {'em até 12x sem juros no '}
+              {'em até 3x sem juros no '}
               <b>cartão de crédito</b>
             </p>
 
@@ -105,7 +105,7 @@ export default function Product({ product }) {
             <p className="mb-0 text-secondary">calcular frete</p>
             <div className="mt-1 mb-2 input-group">
               <input type="text" className="form-control" placeholder="Digite o CEP" />
-              <button className="btn btn-outline-primary text-light" type="button">OK</button>
+              <button className="btn btn-outline-secondary" type="button">OK</button>
             </div>
           </div>
 

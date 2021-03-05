@@ -17,7 +17,7 @@ export default function ProductsList({ productId = null, itemWidth = 256 }) {
   }, [productId]);
 
   return (
-    <Styles.ProductsList itemWidth={itemWidth} className="my-4">
+    <Styles.ProductsList itemWidth={itemWidth} className="py-4">
       {shuffleItems(products)?.map?.((product) => (
         <Item key={product?.id} product={product} width={itemWidth} />
       ))}
