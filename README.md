@@ -12,7 +12,7 @@
  
 <p align="center">
  <a href="https://integration-gn-git-main-gustavofariaa.vercel.app/" target="_blank">
-   <img alt="URL" src="https://img.shields.io/website?down_color=FE546F&style=for-the-badge&up_color=06d6a0&url=https://integration-gn-git-main-gustavofariaa.vercel.app/">
+   <img alt="URL" src="https://img.shields.io/website?down_color=FE546F&style=for-the-badge&up_color=f26522&url=https://integration-gn-git-main-gustavofariaa.vercel.app/">
  </a>
 </p>
  
@@ -39,6 +39,6 @@ Em um mundo cada vez mais conectado, o comércio online vem ganhando muita forç
  
 <p align="center">
  <a href="https://www.linkedin.com/in/gustavofariaa/" target="_blank">
-   <img alt="Twitter Follow" src="https://img.shields.io/badge/Gustavo%20Faria-06d6a0?style=for-the-badge&logo=linkedin&logoColor=FFFFFF">
+   <img alt="Twitter Follow" src="https://img.shields.io/badge/Gustavo%20Faria-f26522?style=for-the-badge&logo=linkedin&logoColor=FFFFFF">
  </a>
 </p>
