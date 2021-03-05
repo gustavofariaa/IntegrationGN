@@ -1,21 +1,26 @@
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import PaymentPage from '../../components/pages/Payment';
 
 import api from '../../utils/api';
 
-export async function getStaticPaths() {
-  return { paths: [], fallback: true };
-}
+export default function Payment() {
+  const { query: { id } } = useRouter();
 
-export async function getStaticProps({ params }) {
-  const { id } = params;
-  try {
-    const { data } = await api.get(`/api/payment/${id}`);
-    return { props: { payment: data } };
-  } catch (error) {
-    return { props: { payment: null } };
-  }
-}
+  const [payment, setPayment] = useState(undefined)
 
-export default function Payment({ payment }) {
+  useEffect(() => {
+    if (!id) return;
+    (async () => {
+      try {
+        const { data } = await api.get(`/api/payment/${id}`);
+        setPayment(data)
+      } catch(error) { 
+        console.error(error);
+        setPayment(null);
+      }
+    })()
+  }, [id])
+
   return <PaymentPage payment={payment} />;
 }
