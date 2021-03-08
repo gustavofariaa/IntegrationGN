@@ -48,7 +48,6 @@ export default function CreditCard({ payment = {}, subscription = {} }) {
       const data = {
         payment: {
           credit_card: {
-            installments: 1,
             payment_token,
             billing_address: {
               ...billing_address,
@@ -66,10 +65,14 @@ export default function CreditCard({ payment = {}, subscription = {} }) {
       };
 
       try {
-        const url = payment?.charge_id ? `/api/pay/${id}` : `/api/club/pay/${id}`;
-        await api.post(url, data);
-        clearCart();
-        router.reload();
+        if (payment?.charge_id) {
+          await api.post(`/api/pay/${id}`, { ...data, installments: 1 });
+          clearCart();
+          router.reload();
+          return;
+        }
+        const { data: { charge: { id: paymentId } } } = await api.post(`/api/club/pay/${id}`, data);
+        router.push(`payment/${paymentId}`);
         return;
       } catch (err) {
         console.error(err);

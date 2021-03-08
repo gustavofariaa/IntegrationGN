@@ -49,10 +49,14 @@ export default function BankingBillet({ payment = {}, subscription = {} }) {
     };
 
     try {
-      const url = payment?.charge_id ? `/api/pay/${id}` : `/api/club/pay/${id}`;
-      await api.post(url, data);
-      clearCart();
-      router.reload();
+      if (payment?.charge_id) {
+        await api.post(`/api/pay/${id}`, data);
+        clearCart();
+        router.reload();
+        return;
+      }
+      const { data: { charge: { id: paymentId } } } = await api.post(`/api/club/pay/${id}`, data);
+      router.push(`payment/${paymentId}`);
       return;
     } catch (error) {
       console.error(error);
