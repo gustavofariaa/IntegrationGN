@@ -1,6 +1,6 @@
-import InputText from '../../../../../InputText';
+import InputText from '../../../InputText';
 
-import { getCardFlag } from '../../../../../../utils/functions';
+import { getCardFlag } from '../../../../utils/functions';
 
 export default function CardForm({ form, isLoading }) {
   const handleSetCardBrand = (number) => {

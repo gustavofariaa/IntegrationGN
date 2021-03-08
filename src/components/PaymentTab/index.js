@@ -2,8 +2,8 @@
 import BankingBillet from './BankingBillet';
 import CreditCard from './CreditCard';
 
-export default function PaymentTab({ payment }) {
-  if (payment?.status === 'waiting') {
+export default function PaymentTab({ payment = {}, subscription = {} }) {
+  if (payment?.status === 'waiting' || subscription?.status === 'waiting') {
     const { banking_billet } = payment?.payment;
     return (
       <div className="text-center m-5">
@@ -21,7 +21,7 @@ export default function PaymentTab({ payment }) {
             <a
               href={banking_billet?.pdf?.charge}
               target="__blank"
-              download={`banking_billet_${payment?.charge_id}`}
+              download={`banking_billet_${payment?.charge_id ?? subscription?.subscription_id}`}
               className="mx-2 btn btn-secondary"
               aria-hidden="true"
             >
@@ -67,10 +67,10 @@ export default function PaymentTab({ payment }) {
       </ul>
       <div className="tab-content" id="myTabContent">
         <div className="tab-pane fade show active" id="banking-billet" role="tabpanel" aria-labelledby="banking-billet-tab">
-          <BankingBillet payment={payment} />
+          <BankingBillet payment={payment} subscription={subscription} />
         </div>
         <div className="tab-pane fade" id="credit-card" role="tabpanel" aria-labelledby="credit-card-tab">
-          <CreditCard payment={payment} />
+          <CreditCard payment={payment} subscription={subscription} />
         </div>
       </div>
     </>

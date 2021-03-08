@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 import * as Styles from './styles';
 
-import PaymentTab from './PaymentTab';
+import PaymentTab from '../../PaymentTab';
 
 import { useAlertContext } from '../../../context/Alert';
 
@@ -11,8 +11,6 @@ import api from '../../../utils/api';
 
 export default function Payment({ payment }) {
   const router = useRouter();
-
-  console.log(payment);
 
   const { showAlert } = useAlertContext();
 

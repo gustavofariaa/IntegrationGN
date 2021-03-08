@@ -1,6 +1,6 @@
-import InputText from '../../../../../InputText';
+import InputText from '../../../InputText';
 
-import { getAddress } from '../../../../../../utils/functions';
+import { getAddress } from '../../../../utils/functions';
 
 export default function AddressForm({ form, isLoading, setIsLoading }) {
   const handleSetAddress = async (zipcode) => {

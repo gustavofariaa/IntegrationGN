@@ -10,13 +10,13 @@ import AddressForm from '../Form/Address';
 import CustomerForm from '../Form/Customer';
 import CardForm from '../Form/Card';
 
-import { getPaymentToken } from '../../../../../utils/functions';
+import { getPaymentToken } from '../../../utils/functions';
 
-import { useCartContext } from '../../../../../context/Cart';
+import { useCartContext } from '../../../context/Cart';
 
-import api from '../../../../../utils/api';
+import api from '../../../utils/api';
 
-export default function CreditCard({ payment }) {
+export default function CreditCard({ payment = {}, subscription = {} }) {
   const router = useRouter();
 
   const { clearCart } = useCartContext();
@@ -44,7 +44,7 @@ export default function CreditCard({ payment }) {
       const BIRTH = moment(birth).format('YYYY-MM-DD');
       const ZIPCODE = String(zipcode.replace(/\D/g, ''));
 
-      const id = payment?.charge_id;
+      const id = payment?.charge_id ?? subscription?.subscription_id;
       const data = {
         payment: {
           credit_card: {
@@ -66,7 +66,8 @@ export default function CreditCard({ payment }) {
       };
 
       try {
-        await api.post(`/api/pay/${id}`, data);
+        const url = payment?.charge_id ? `/api/pay/${id}` : `/api/club/pay/${id}`;
+        await api.post(url, data);
         clearCart();
         router.reload();
         return;

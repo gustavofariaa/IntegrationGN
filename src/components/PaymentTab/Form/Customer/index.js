@@ -1,4 +1,4 @@
-import InputText from '../../../../../InputText';
+import InputText from '../../../InputText';
 
 export default function CustomerForm({ form, isLoading }) {
   return (

@@ -74,7 +74,6 @@ export default function Cart() {
         <Styles.PaymentDetails className="my-2">
           <p className="m-0">{`${items?.length} produtos`}</p>
           <p className="m-0">{formatBRL(totalItems)}</p>
-
         </Styles.PaymentDetails>
 
         <Styles.PaymentDetails className={`mb-2 ${shipping === 0 ? 'text-success' : ''}`}>

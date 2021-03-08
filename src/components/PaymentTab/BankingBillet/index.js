@@ -8,11 +8,11 @@ import * as Styles from './styles';
 
 import CustomerForm from '../Form/Customer';
 
-import { useCartContext } from '../../../../../context/Cart';
+import { useCartContext } from '../../../context/Cart';
 
-import api from '../../../../../utils/api';
+import api from '../../../utils/api';
 
-export default function BankingBillet({ payment }) {
+export default function BankingBillet({ payment = {}, subscription = {} }) {
   const router = useRouter();
 
   const { clearCart } = useCartContext();
@@ -32,7 +32,7 @@ export default function BankingBillet({ payment }) {
     const BIRTH = moment(birth).format('YYYY-MM-DD');
 
     const expireAt = moment().add(3, 'days').format('YYYY-MM-DD');
-    const id = payment?.charge_id;
+    const id = payment?.charge_id ?? subscription?.subscription_id;
     const data = {
       payment: {
         banking_billet: {
@@ -49,7 +49,8 @@ export default function BankingBillet({ payment }) {
     };
 
     try {
-      await api.post(`/api/pay/${id}`, data);
+      const url = payment?.charge_id ? `/api/pay/${id}` : `/api/club/pay/${id}`;
+      await api.post(url, data);
       clearCart();
       router.reload();
       return;

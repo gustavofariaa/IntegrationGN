@@ -40,13 +40,32 @@ export const shuffleItems = (array) => {
 };
 
 export const getPaymentToken = async (card, callback) => {
-  await window.checkout.getPaymentToken({
-    brand: 'visa', // bandeira do cartão
-    number: '4012001038443335', // número do cartão
-    cvv: '123', // código de segurança
-    expiration_month: '05', // mês de vencimento
-    expiration_year: '2021', // ano de vencimento
-  }, callback);
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  // eslint-disable-next-line radix
+  const validation = parseInt(Math.random() * 1000000);
+  script.src = `https://sandbox.gerencianet.com.br/v1/cdn/9f5a8c2bc2a09a6a985c784480a082c1/${validation}`;
+  script.async = false;
+  script.id = '9f5a8c2bc2a09a6a985c784480a082c1';
+  if (!document.getElementById('9f5a8c2bc2a09a6a985c784480a082c1')) {
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+  window.$gn = {
+    validForm: true,
+    processed: false,
+    done: {},
+    ready(fn) { window.$gn.done = fn; },
+  };
+  window.$gn.ready(async (checkout) => {
+    await checkout.getPaymentToken({
+      brand: card.brand,
+      number: card.number,
+      cvv: card.cvv,
+      expiration_month: card.expiration_month,
+      expiration_year: card.expiration_year,
+    }, callback);
+    window.$gn = null;
+  });
 };
 
 export const getCardFlag = (cardNumber) => {

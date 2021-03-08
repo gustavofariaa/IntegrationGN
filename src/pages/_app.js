@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 
@@ -11,28 +10,6 @@ import Layout from '../layout';
 import ContextProvider from '../context';
 
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    (() => {
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      // eslint-disable-next-line radix
-      const validation = parseInt(Math.random() * 1000000);
-      script.src = `https://sandbox.gerencianet.com.br/v1/cdn/9f5a8c2bc2a09a6a985c784480a082c1/${validation}`;
-      script.async = false;
-      script.id = '9f5a8c2bc2a09a6a985c784480a082c1';
-      if (!document.getElementById('9f5a8c2bc2a09a6a985c784480a082c1')) {
-        document.getElementsByTagName('head')[0].appendChild(script);
-      }
-      window.$gn = {
-        validForm: true,
-        processed: false,
-        done: {},
-        ready(fn) { window.$gn.done = fn; },
-      };
-      window.$gn.ready((checkout) => { window.checkout = checkout; });
-    })();
-  }, []);
-
   return (
     <ThemeProvider theme={theme}>
 

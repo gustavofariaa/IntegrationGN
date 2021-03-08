@@ -77,7 +77,7 @@ export default function Product({ product }) {
 
   return (
     <div>
-      <Styles.Product className="my-4 row">
+      <Styles.Product className="my-4 g-1 row">
         <div className="product-presentation card col-7">
           <img src={product?.image} className="p-4 card-img-top" alt="Product" />
 
