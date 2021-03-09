@@ -31,7 +31,18 @@ export default function Cart() {
   }
 
   const continueToPayment = async () => {
-    const _items = items?.map?.((item) => ({ name: item.name, value: item.value, amount: 1 }));
+    const _items = items?.map?.((item) => {
+      const data = { name: item.name, value: item.value, amount: 1 };
+      if (item?.payee_code) {
+        const repass = {
+          payee_code: item?.payee_code,
+          percentage: 4000,
+        };
+        const marketplace = { repasses: [repass] };
+        return { ...data, marketplace };
+      }
+      return data;
+    });
     const data = {
       items: _items,
       shippings: [{ name: 'free', value: 0 }],

@@ -29,11 +29,21 @@ export default function Item({ product, width = 256 }) {
     <Styles.Item width={width} className="card" onClick={handleOnClick} aria-hidden="true">
       <img src={product.image} className="card-img-top" alt="..." />
 
-      <div className="d-flex w-100 justify-content-center">
-        <div className="px-3 bg-danger text-light rounded text-center">
-          <b>{`Acaba em: ${time}`}</b>
-        </div>
-      </div>
+      {product?.payee_code
+        ? (
+          <div className="d-flex w-100 justify-content-center">
+            <div className="px-3 bg-success text-light rounded text-center">
+              <b>Produto de parceiros</b>
+            </div>
+          </div>
+        )
+        : (
+          <div className="d-flex w-100 justify-content-center">
+            <div className="px-3 bg-danger text-light rounded text-center">
+              <b>{`Acaba em: ${time}`}</b>
+            </div>
+          </div>
+        )}
 
       <div className="card-body">
         <p className="card-title">{product.name}</p>

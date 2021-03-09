@@ -27,8 +27,7 @@ export default [{
   name: 'Capa Nintendo',
   description: 'As capinhas para celular personalizadas são produzidas com os melhores materiais disponíveis no mercado. Essa capinha é produzida em TPU (material emborrachado flexível de alta durabilidade) proporcionando bastante qualidade e protegendo o seu smartphone contra impactos, arranhões e sujeira ocasionados no cotidiano.',
   image: 'https://case4you.s3.amazonaws.com/products/58951bc4738455e5351bb3b8/images/banner%20%281%29.png',
-  value: 3990
-  ,
+  value: 3990,
 }, {
   id: '273266278',
   name: 'Capa Pokémon',
@@ -52,7 +51,8 @@ export default [{
   name: 'Capa Rei Leão',
   description: 'As capinhas para celular personalizadas são produzidas com os melhores materiais disponíveis no mercado. Essa capinha é produzida em TPU (material emborrachado flexível de alta durabilidade) proporcionando bastante qualidade e protegendo o seu smartphone contra impactos, arranhões e sujeira ocasionados no cotidiano.',
   image: 'https://case4you.s3.amazonaws.com/products/5d2f6ddebb7d6e4e5b7e8fee/images/Rei-Le%C3%A3o-trans.jpg',
-  value: 3990,
+  value: 4990,
+  payee_code: '9f5a8c2bc2a09a6a985c784480a082c1',
 }, {
   id: '256159563',
   name: 'Capa La Casa de Papel',
@@ -65,7 +65,8 @@ export default [{
   name: 'Capa Toy Story',
   description: 'As capinhas para celular personalizadas são produzidas com os melhores materiais disponíveis no mercado. Essa capinha é produzida em TPU (material emborrachado flexível de alta durabilidade) proporcionando bastante qualidade e protegendo o seu smartphone contra impactos, arranhões e sujeira ocasionados no cotidiano.',
   image: 'https://case4you.s3.amazonaws.com/products/5d0b078c7dca207dfb2f1d45/images/Toy-Story-trans.jpg',
-  value: 3990,
+  value: 4990,
+  payee_code: '9f5a8c2bc2a09a6a985c784480a082c1',
 },
 {
   id: '783809023',
@@ -79,7 +80,8 @@ export default [{
   name: 'Capa Star Wars',
   description: 'As capinhas para celular personalizadas são produzidas com os melhores materiais disponíveis no mercado. Essa capinha é produzida em TPU (material emborrachado flexível de alta durabilidade) proporcionando bastante qualidade e protegendo o seu smartphone contra impactos, arranhões e sujeira ocasionados no cotidiano.',
   image: 'https://case4you.s3.amazonaws.com/products/5a8cd72d05ee7b1f97d66adf/images/banner.png',
-  value: 3990,
+  value: 4990,
+  payee_code: '9f5a8c2bc2a09a6a985c784480a082c1',
 },
 {
   id: '177989245',
