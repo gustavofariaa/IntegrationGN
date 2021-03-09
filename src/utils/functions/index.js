@@ -1,4 +1,5 @@
 import axios from 'axios';
+import aes256 from 'aes256';
 
 export const formatBRL = (value) => {
   const convertedValue = (value / 100)
@@ -84,4 +85,14 @@ export const getCardFlag = (cardNumber) => {
 
   if (brand) return brand;
   return false;
+};
+
+export const encrypt = (plaintext) => {
+  const encryptedPlainText = aes256.encrypt(process.env.CRYPTOGRAPHIC_KEY, plaintext);
+  return encryptedPlainText;
+};
+
+export const decrypt = (encryptedText) => {
+  const encryptedPlainText = aes256.decrypt(process.env.CRYPTOGRAPHIC_KEY, encryptedText);
+  return encryptedPlainText;
 };
