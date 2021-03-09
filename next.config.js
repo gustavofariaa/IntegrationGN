@@ -6,6 +6,7 @@ const nextConfig = () => {
     API_BASE_URL: process.env.API_BASE_URL,
     CLIENT_ID: process.env.CLIENT_ID,
     CLIENT_SECRET: process.env.CLIENT_SECRET,
+    CRYPTOGRAPHIC_KEY: process.env.CRYPTOGRAPHIC_KEY,
   };
   return { env };
 };

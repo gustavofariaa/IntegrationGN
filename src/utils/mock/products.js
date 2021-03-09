@@ -1,3 +1,15 @@
+import aes256 from 'aes256';
+
+// const encrypt = (plaintext) => {
+//   const encryptedPlainText = aes256.encrypt(process.env.CRYPTOGRAPHIC_KEY, plaintext);
+//   return encryptedPlainText;
+// };
+
+const decrypt = (encryptedText) => {
+  const encryptedPlainText = aes256.decrypt(process.env.CRYPTOGRAPHIC_KEY, encryptedText);
+  return encryptedPlainText;
+};
+
 export default [{
   id: '640400335',
   name: 'Capa Câmera Case',
@@ -52,7 +64,7 @@ export default [{
   description: 'As capinhas para celular personalizadas são produzidas com os melhores materiais disponíveis no mercado. Essa capinha é produzida em TPU (material emborrachado flexível de alta durabilidade) proporcionando bastante qualidade e protegendo o seu smartphone contra impactos, arranhões e sujeira ocasionados no cotidiano.',
   image: 'https://case4you.s3.amazonaws.com/products/5d2f6ddebb7d6e4e5b7e8fee/images/Rei-Le%C3%A3o-trans.jpg',
   value: 4990,
-  payee_code: '9f5a8c2bc2a09a6a985c784480a082c1',
+  payee_code: decrypt('+jBMDqfkUdJzFxuvDL+t0efxmLEAfOzKra41QCpjBRTL7QNz5iI8g/zrrgyOkyeO'),
 }, {
   id: '256159563',
   name: 'Capa La Casa de Papel',
@@ -66,7 +78,7 @@ export default [{
   description: 'As capinhas para celular personalizadas são produzidas com os melhores materiais disponíveis no mercado. Essa capinha é produzida em TPU (material emborrachado flexível de alta durabilidade) proporcionando bastante qualidade e protegendo o seu smartphone contra impactos, arranhões e sujeira ocasionados no cotidiano.',
   image: 'https://case4you.s3.amazonaws.com/products/5d0b078c7dca207dfb2f1d45/images/Toy-Story-trans.jpg',
   value: 4990,
-  payee_code: '9f5a8c2bc2a09a6a985c784480a082c1',
+  payee_code: decrypt('+jBMDqfkUdJzFxuvDL+t0efxmLEAfOzKra41QCpjBRTL7QNz5iI8g/zrrgyOkyeO'),
 },
 {
   id: '783809023',
@@ -81,7 +93,7 @@ export default [{
   description: 'As capinhas para celular personalizadas são produzidas com os melhores materiais disponíveis no mercado. Essa capinha é produzida em TPU (material emborrachado flexível de alta durabilidade) proporcionando bastante qualidade e protegendo o seu smartphone contra impactos, arranhões e sujeira ocasionados no cotidiano.',
   image: 'https://case4you.s3.amazonaws.com/products/5a8cd72d05ee7b1f97d66adf/images/banner.png',
   value: 4990,
-  payee_code: '9f5a8c2bc2a09a6a985c784480a082c1',
+  payee_code: decrypt('+jBMDqfkUdJzFxuvDL+t0efxmLEAfOzKra41QCpjBRTL7QNz5iI8g/zrrgyOkyeO'),
 },
 {
   id: '177989245',
